@@ -18,7 +18,7 @@ class TopBanner extends StatelessWidget {
         padding: const EdgeInsets.only(top: 0.0, bottom: 0.0),
         child: Container(
           child: TopContainer(
-            height: 200,
+            height: 100,
             width: width,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

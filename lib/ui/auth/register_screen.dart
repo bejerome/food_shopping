@@ -1,4 +1,3 @@
-import 'package:camping_fanatics/services/firestore_database.dart';
 import 'package:camping_fanatics/services/firestore_path.dart';
 import 'package:camping_fanatics/services/firestore_service.dart';
 import 'package:flutter/material.dart';

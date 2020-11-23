@@ -1,5 +1,4 @@
 import 'package:camping_fanatics/ui/home/calendar_popup_view.dart';
-import 'package:camping_fanatics/ui/home/custom_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:camping_fanatics/ui/auth/register_screen.dart';
 import 'package:camping_fanatics/ui/auth/sign_in_screen.dart';
