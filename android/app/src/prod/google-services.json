@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "193747951052",
+    "firebase_url": "https://camping-fanatics.firebaseio.com",
+    "project_id": "camping-fanatics",
+    "storage_bucket": "camping-fanatics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193747951052:android:eafc6497047607ede39169",
+        "android_client_info": {
+          "package_name": "com.camping_fanatics_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193747951052-hnvvlqg50ojal9fg8rqmbltidog6upe7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAo_stFYnHKlME01Cy3CFia346ECbiAD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193747951052-hnvvlqg50ojal9fg8rqmbltidog6upe7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193747951052:android:5b2dc7555e93c0cae39169",
+        "android_client_info": {
+          "package_name": "com.camping_fanatics_app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193747951052-hnvvlqg50ojal9fg8rqmbltidog6upe7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAo_stFYnHKlME01Cy3CFia346ECbiAD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193747951052-hnvvlqg50ojal9fg8rqmbltidog6upe7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193747951052:android:28bfb446e67e286ce39169",
+        "android_client_info": {
+          "package_name": "com.camping_fanatics_app.prod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193747951052-hnvvlqg50ojal9fg8rqmbltidog6upe7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAo_stFYnHKlME01Cy3CFia346ECbiAD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193747951052-hnvvlqg50ojal9fg8rqmbltidog6upe7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
