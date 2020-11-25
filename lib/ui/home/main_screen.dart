@@ -1,5 +1,4 @@
 import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/routes.dart';
 import 'package:camping_fanatics/services/firestore_database.dart';
 import 'package:camping_fanatics/ui/home/dashboard.dart';
 import 'package:camping_fanatics/ui/setting/setting_screen.dart';
@@ -7,8 +6,6 @@ import 'package:camping_fanatics/ui/widgets/menu_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:camping_fanatics/ui/widgets/active_project_card.dart';
-import 'package:camping_fanatics/ui/widgets/task_column.dart';
 import 'package:camping_fanatics/ui/widgets/top_container.dart';
 
 class MainScreen extends StatefulWidget {
