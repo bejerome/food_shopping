@@ -2,10 +2,13 @@ import 'package:camping_fanatics/models/user_model.dart';
 import 'package:camping_fanatics/services/firestore_database.dart';
 import 'package:camping_fanatics/ui/home/shopping_list_view.dart';
 import 'package:camping_fanatics/ui/widgets/custom_top_bar.dart';
+import 'package:camping_fanatics/ui/widgets/my_text_field.dart';
+import 'package:camping_fanatics/ui/widgets/shopping_form.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:adv_fab/adv_fab.dart';
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 
 class Dashboard extends StatefulWidget {
   final Function menuCallBack;
@@ -22,6 +25,9 @@ class _DashboardState extends State<Dashboard>
   bool useAsFloatingActionButton = true;
   bool useNavigationBar = false;
   TextEditingController itemName;
+  TextEditingController _itemController;
+  bool showWhichErrorText = false;
+
   @override
   void initState() {
     super.initState();
@@ -40,18 +46,6 @@ class _DashboardState extends State<Dashboard>
     );
   }
 
-  static CircleAvatar calendarIcon() {
-    return CircleAvatar(
-      radius: 25.0,
-      backgroundColor: Color.fromRGBO(48, 147, 152, 1),
-      child: Icon(
-        Icons.calendar_today,
-        size: 20.0,
-        color: Colors.white,
-      ),
-    );
-  }
-
   Widget itemForm(BuildContext context) {
     return Form(
       child: Column(
@@ -64,51 +58,38 @@ class _DashboardState extends State<Dashboard>
     mabialaFABController.setExpandedWidgetConfiguration(
       expendedContainerMainAxisAlignment: MainAxisAlignment.center,
       showLogs: true,
-      heightToExpandTo: 60,
-      expendedBackgroundColor: Colors.transparent,
-      withChild: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          alignment: Alignment.center,
-          width: (MediaQuery.of(context).size.width),
+      heightToExpandTo: 40,
+      expendedBackgroundColor: Colors.black87,
+      withChild: Stack(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Container(
+              alignment: Alignment.topCenter,
+              width: MediaQuery.of(context).size.width,
 
-          ///[IMPORTANT]: the height percentage shall be less than [heightToExpandTo]
-          ///in the next line we use 20%
-          height: (MediaQuery.of(context).size.height / 100) * 50,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 8.0, right: 8),
-                  child: GestureDetector(
-                      onTap: () => mabialaFABController.collapseFAB(),
-                      child: Text('Add Item')),
+              ///[IMPORTANT]: the height percentage shall be less than [heightToExpandTo]
+              ///in the next line we use 20%
+              height: (MediaQuery.of(context).size.height / 100) * 30,
+              child: Expanded(
+                flex: 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                        onTap: () => mabialaFABController.collapseFAB(),
+                        child: Text('Add Item')),
+                    Container(
+                      alignment: Alignment.topCenter,
+                      color: Colors.white,
+                      child: ShoppingForm(),
+                    ),
+                  ],
                 ),
               ),
-              Expanded(
-                flex: 5,
-                child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 1,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: (MediaQuery.of(context).size.width),
-                        height: (MediaQuery.of(context).size.height / 100) * 9,
-                        color: Colors.pink,
-                        child: null,
-                      ),
-                    );
-                  },
-                ),
-              )
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -122,6 +103,7 @@ class _DashboardState extends State<Dashboard>
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       floatingActionButton: AdvFab(
           floatingActionButtonExpendedWidth: 90,
           floatingActionButtonIconColor: Colors.orangeAccent,

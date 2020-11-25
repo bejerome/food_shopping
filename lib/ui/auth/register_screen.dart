@@ -168,6 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 .toMap());
 
                             if (userModel == null) {
+                              // ignore: deprecated_member_use
                               _scaffoldKey.currentState.showSnackBar(SnackBar(
                                 content: Text(AppLocalizations.of(context)
                                     .translate("loginTxtErrorSignIn")),
