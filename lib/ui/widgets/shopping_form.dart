@@ -21,10 +21,8 @@ class ShoppingFormState extends State<ShoppingForm> {
         key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.only(top: 2),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ListTile(
@@ -32,33 +30,52 @@ class ShoppingFormState extends State<ShoppingForm> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 30.0,
+                        fontSize: 20.0,
                         fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  child: ChipsChoice<int>.single(
-                    choiceActiveStyle: C2ChoiceStyle(
-                        borderColor: Colors.green,
-                        color: Colors.green,
-                        labelStyle: TextStyle(color: Colors.green)),
-                    choiceStyle: C2ChoiceStyle(
-                        color: Colors.orange,
-                        borderColor: Colors.orange,
-                        labelStyle: TextStyle(color: Colors.orange)),
-                    value: tag,
-                    onChanged: (val) => setState(() => tag = val),
-                    choiceItems: C2Choice.listFrom<int, String>(
-                      source: options,
-                      value: (i, v) => i,
-                      label: (i, v) => v,
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.auto,
+                      filled: true,
+                      fillColor: Colors.white70,
+                      labelText: "Add Item",
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 30.0,
-                  width: (MediaQuery.of(context).size.width / 2),
-                  child: TextFormField(
+
+                ListTile(
+                  title: Container(
+                    child: ChipsChoice<int>.single(
+                      choiceActiveStyle: C2ChoiceStyle(
+                          elevation: 15,
+                          borderColor: Colors.transparent,
+                          color: Colors.green,
+                          labelStyle: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold)),
+                      choiceStyle: C2ChoiceStyle(
+                          elevation: 5,
+                          color: Colors.orange,
+                          borderColor: Colors.transparent,
+                          labelStyle: TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold)),
+                      value: tag,
+                      onChanged: (val) => setState(() => tag = val),
+                      choiceItems: C2Choice.listFrom<int, String>(
+                        source: options,
+                        value: (i, v) => i,
+                        label: (i, v) => v,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  child: ListTile(
+                      title: TextFormField(
                     keyboardType: TextInputType.number,
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -66,14 +83,34 @@ class ShoppingFormState extends State<ShoppingForm> {
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold),
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      floatingLabelBehavior: FloatingLabelBehavior.auto,
+                      filled: true,
+                      fillColor: Colors.white70,
+                      labelText: "QTY",
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
+                    ),
+                  )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Container(
+                    height: 70,
+                    width: 70,
+                    child: FloatingActionButton(
+                      isExtended: true,
+                      elevation: 15,
+                      child: Icon(
+                        Icons.add,
+                        size: 40,
+                      ),
+                      onPressed: () {},
                     ),
                   ),
                 ),
 
-                RaisedButton(
-                  onPressed: () {},
-                )
                 // SimpleAutoCompleteTextField(
                 //   key: _formKey,
                 //   decoration: new InputDecoration(errorText: "Beans"),

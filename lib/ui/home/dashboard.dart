@@ -27,7 +27,8 @@ class _DashboardState extends State<Dashboard>
   TextEditingController itemName;
   TextEditingController _itemController;
   bool showWhichErrorText = false;
-
+  double width;
+  double height;
   @override
   void initState() {
     super.initState();
@@ -56,36 +57,33 @@ class _DashboardState extends State<Dashboard>
 
   void adForm() {
     mabialaFABController.setExpandedWidgetConfiguration(
-      expendedContainerMainAxisAlignment: MainAxisAlignment.center,
+      expendedContainerMainAxisAlignment: MainAxisAlignment.start,
       showLogs: true,
-      heightToExpandTo: 40,
-      expendedBackgroundColor: Colors.black87,
+      heightToExpandTo: 60,
+      expendedBackgroundColor: Colors.lightGreen,
       withChild: Stack(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.only(top: 2.0),
             child: Container(
               alignment: Alignment.topCenter,
               width: MediaQuery.of(context).size.width,
 
               ///[IMPORTANT]: the height percentage shall be less than [heightToExpandTo]
               ///in the next line we use 20%
-              height: (MediaQuery.of(context).size.height / 100) * 30,
-              child: Expanded(
-                flex: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                        onTap: () => mabialaFABController.collapseFAB(),
-                        child: Text('Add Item')),
-                    Container(
-                      alignment: Alignment.topCenter,
-                      color: Colors.white,
-                      child: ShoppingForm(),
-                    ),
-                  ],
-                ),
+              height: (MediaQuery.of(context).size.height / 100) * 50,
+
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                      onTap: () => mabialaFABController.collapseFAB(),
+                      child: Icon(
+                        Icons.close,
+                        size: 40,
+                      )),
+                  ShoppingForm(),
+                ],
               ),
             ),
           ),
@@ -100,10 +98,10 @@ class _DashboardState extends State<Dashboard>
     adForm();
     final firestoreDatabase =
         Provider.of<FirestoreDatabase>(context, listen: false);
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomPadding: true,
       floatingActionButton: AdvFab(
           floatingActionButtonExpendedWidth: 90,
           floatingActionButtonIconColor: Colors.orangeAccent,
@@ -113,74 +111,76 @@ class _DashboardState extends State<Dashboard>
                 : mabialaFABController.collapseFAB();
           },
           floatingActionButtonIcon: Icons.add_circle,
-          floatingSpaceBarContainerWidth: 90,
           controller: mabialaFABController),
       backgroundColor: Color.fromRGBO(255, 249, 235, 1),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          StreamBuilder(
-              stream: firestoreDatabase.userDetailsStream(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  user = snapshot.data.first;
-                  return Visibility(
-                    visible: user != null ? true : false,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: height - 50,
-                          child: Column(
-                            children: [
-                              TopBar(
-                                title: "Dashboard",
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    CircularPercentIndicator(
-                                      radius: 50.0,
-                                      lineWidth: 5.0,
-                                      animation: true,
-                                      percent: 0.55,
-                                      circularStrokeCap:
-                                          CircularStrokeCap.round,
-                                      progressColor: Colors.red,
-                                      backgroundColor:
-                                          Color.fromRGBO(249, 190, 124, 1),
-                                      center: CircleAvatar(
-                                        backgroundColor: Colors.blue,
-                                        radius: 35.0,
-                                        backgroundImage:
-                                            NetworkImage(user.photoUrl),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            StreamBuilder(
+                stream: firestoreDatabase.userDetailsStream(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    user = snapshot.data.first;
+                    return Visibility(
+                      visible: user != null ? true : false,
+                      child: Column(
+                        children: [
+                          Container(
+                            height: height - 50,
+                            child: Column(
+                              children: [
+                                TopBar(
+                                  title: "Dashboard",
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      CircularPercentIndicator(
+                                        radius: 50.0,
+                                        lineWidth: 5.0,
+                                        animation: true,
+                                        percent: 0.55,
+                                        circularStrokeCap:
+                                            CircularStrokeCap.round,
+                                        progressColor: Colors.red,
+                                        backgroundColor:
+                                            Color.fromRGBO(249, 190, 124, 1),
+                                        center: CircleAvatar(
+                                          backgroundColor: Colors.blue,
+                                          radius: 35.0,
+                                          backgroundImage:
+                                              NetworkImage(user.photoUrl),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  onPressed: null,
+                                  onTitleTapped: null,
                                 ),
-                                onPressed: null,
-                                onTitleTapped: null,
-                              ),
-                              Expanded(
-                                child: FruitAppCartView(tabController),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  );
+                                Expanded(
+                                  child: FruitAppCartView(tabController),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    );
 
-                  // This trailing comma makes auto-formatting nicer for build methods.
+                    // This trailing comma makes auto-formatting nicer for build methods.
 
-                } else {
-                  return Container(
-                    width: 0,
-                    height: 0,
-                  );
-                }
-              }),
-        ],
+                  } else {
+                    return Container(
+                      width: 0,
+                      height: 0,
+                    );
+                  }
+                }),
+          ],
+        ),
       ),
     );
   }

@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Camping Fanatics Dev",
+        "name": "Food Dev",
         "program": "lib/main.dart",
         "request": "launch",
         "type": "dart",
