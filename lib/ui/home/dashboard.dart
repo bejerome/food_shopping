@@ -24,8 +24,7 @@ class _DashboardState extends State<Dashboard>
   bool useFloatingSpaceBar = false;
   bool useAsFloatingActionButton = true;
   bool useNavigationBar = false;
-  TextEditingController itemName;
-  TextEditingController _itemController;
+
   bool showWhichErrorText = false;
   double width;
   double height;

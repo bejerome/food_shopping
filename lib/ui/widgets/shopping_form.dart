@@ -14,6 +14,30 @@ class ShoppingFormState extends State<ShoppingForm> {
   GlobalKey<AutoCompleteTextFieldState<String>> _formKey = new GlobalKey();
   int tag = 0;
   List<String> options = ['Quantity', 'Lbs', 'Box', 'bag'];
+  TextEditingController itemNameController = TextEditingController();
+  TextEditingController itemQuantityController = TextEditingController();
+  String valueStored = "QTY";
+  String amountLabel = "QTY";
+
+  String storeValue(index) {
+    switch (index) {
+      case 0:
+        return "qty";
+        break;
+      case 1:
+        return "lbs";
+        break;
+      case 2:
+        return "box";
+        break;
+      case 3:
+        return "bag";
+        break;
+      default:
+        return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,21 +49,25 @@ class ShoppingFormState extends State<ShoppingForm> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ListTile(
-                  title: TextFormField(
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                      filled: true,
-                      fillColor: Colors.white70,
-                      labelText: "Add Item",
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  child: ListTile(
+                    title: TextFormField(
+                      controller: itemNameController,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.auto,
+                        filled: true,
+                        fillColor: Colors.white70,
+                        labelText: "Add Item",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
@@ -49,21 +77,25 @@ class ShoppingFormState extends State<ShoppingForm> {
                   title: Container(
                     child: ChipsChoice<int>.single(
                       choiceActiveStyle: C2ChoiceStyle(
-                          elevation: 15,
-                          borderColor: Colors.transparent,
-                          color: Colors.green,
-                          labelStyle: TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold)),
+                        elevation: 20,
+                        pressElevation: 1,
+                        borderColor: Colors.transparent,
+                        color: Colors.green,
+                        labelStyle: TextStyle(
+                            color: Colors.green, fontWeight: FontWeight.bold),
+                      ),
                       choiceStyle: C2ChoiceStyle(
-                          elevation: 5,
-                          color: Colors.orange,
-                          borderColor: Colors.transparent,
-                          labelStyle: TextStyle(
-                              color: Colors.orange,
-                              fontWeight: FontWeight.bold)),
+                        elevation: 5,
+                        color: Colors.orange,
+                        borderColor: Colors.transparent,
+                        labelStyle: TextStyle(
+                            color: Colors.orange, fontWeight: FontWeight.bold),
+                      ),
                       value: tag,
-                      onChanged: (val) => setState(() => tag = val),
+                      onChanged: (val) => {
+                        valueStored = storeValue(val),
+                        setState(() => tag = val),
+                      },
                       choiceItems: C2Choice.listFrom<int, String>(
                         source: options,
                         value: (i, v) => i,
@@ -75,24 +107,29 @@ class ShoppingFormState extends State<ShoppingForm> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40),
                   child: ListTile(
-                      title: TextFormField(
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.auto,
-                      filled: true,
-                      fillColor: Colors.white70,
-                      labelText: "QTY",
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                    title: TextFormField(
+                      controller: itemQuantityController,
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.auto,
+                        filled: true,
+                        fillColor: Colors.white70,
+                        labelText: valueStored,
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                        ),
                       ),
+                      onFieldSubmitted: (value) {
+                        print(value);
+                      },
                     ),
-                  )),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
@@ -106,7 +143,10 @@ class ShoppingFormState extends State<ShoppingForm> {
                         Icons.add,
                         size: 40,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        print("Item: ${itemNameController.text} ");
+                        print("$valueStored: ${itemQuantityController.text} ");
+                      },
                     ),
                   ),
                 ),
