@@ -1,6 +1,10 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:camping_fanatics/models/fruits.dart';
+import 'package:camping_fanatics/providers/site_provider.dart';
+import 'package:camping_fanatics/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:chips_choice/chips_choice.dart';
+import 'package:provider/provider.dart';
 
 class ShoppingForm extends StatefulWidget {
   @override
@@ -146,6 +150,19 @@ class ShoppingFormState extends State<ShoppingForm> {
                       onPressed: () {
                         print("Item: ${itemNameController.text} ");
                         print("$valueStored: ${itemQuantityController.text} ");
+                        setState(() {
+                          Provider.of<SiteProvider>(context, listen: false)
+                              .addItem(
+                            Fruit(
+                                int.parse(itemQuantityController.text),
+                                "${itemNameController.text}",
+                                "${itemQuantityController.text}",
+                                ImageAssetPath.avocadoImage,
+                                "$valueStored",
+                                Color(0XFF558948),
+                                4.5),
+                          );
+                        });
                       },
                     ),
                   ),

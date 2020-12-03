@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:adv_fab/adv_fab.dart';
-import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+// import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 
 class Dashboard extends StatefulWidget {
   final Function menuCallBack;
@@ -102,6 +102,7 @@ class _DashboardState extends State<Dashboard>
     return Scaffold(
       resizeToAvoidBottomPadding: true,
       floatingActionButton: AdvFab(
+          useAsFloatingActionButton: true,
           floatingActionButtonExpendedWidth: 90,
           floatingActionButtonIconColor: Colors.orangeAccent,
           onFloatingActionButtonTapped: () {

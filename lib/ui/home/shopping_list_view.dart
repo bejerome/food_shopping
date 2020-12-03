@@ -1,13 +1,19 @@
 import 'package:camping_fanatics/models/fruits.dart';
+import 'package:camping_fanatics/providers/site_provider.dart';
+import 'package:camping_fanatics/ui/widgets/item_card.dart';
 import 'package:camping_fanatics/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
 
 class FruitAppCartView extends StatelessWidget {
   final TabController tabController;
   FruitAppCartView(this.tabController);
+
   @override
   Widget build(BuildContext context) {
+    var fruits = Provider.of<SiteProvider>(context).fruits;
+
     final appBar = TabBar(
       controller: tabController,
       indicatorColor: Colors.transparent,
@@ -33,16 +39,7 @@ class FruitAppCartView extends StatelessWidget {
       ],
     );
 
-    final cartItems = Column(
-      children: <Widget>[
-        _buildCartCard(fruits[0], context),
-        _buildCartCard(fruits[1], context),
-        _buildCartCard(fruits[2], context),
-        _buildCartCard(fruits[0], context),
-        _buildCartCard(fruits[1], context),
-        _buildCartCard(fruits[2], context),
-      ],
-    );
+    final cartItems = Provider.of<SiteProvider>(context).createShoppingItems();
 
     final cartValue = Padding(
       padding: const EdgeInsets.only(right: 15.0),
