@@ -48,9 +48,11 @@ class _ItemCardState extends State<ItemCard> {
                     right: 10.0,
                   ),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           SizedBox(
                             height: 10.0,
@@ -58,10 +60,10 @@ class _ItemCardState extends State<ItemCard> {
                           Text(
                             widget.shoppingItem.name,
                             style: TextStyle(
-                              fontFamily: Fonts.primaryFont,
+                              fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                              color: Colors.black87,
+                              fontSize: 18.0,
+                              color: Colors.black,
                             ),
                           ),
                           SizedBox(
@@ -72,15 +74,17 @@ class _ItemCardState extends State<ItemCard> {
                             style: TextStyle(
                               fontFamily: Fonts.primaryFont,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                              color: Colors.orange,
+                              fontSize: 18.0,
+                              color: Colors.grey,
                             ),
                           ),
                           Text(
                             widget.shoppingItem.amount,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.orange),
+                              fontWeight: FontWeight.bold,
+                              color: Colors.orange,
+                              fontSize: 20.0,
+                            ),
                           ),
                           SizedBox(
                             width: 16.0,

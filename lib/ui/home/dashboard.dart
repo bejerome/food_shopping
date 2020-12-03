@@ -81,7 +81,7 @@ class _DashboardState extends State<Dashboard>
                         Icons.close,
                         size: 40,
                       )),
-                  ShoppingForm(),
+                  ShoppingForm(formController: mabialaFABController),
                 ],
               ),
             ),
