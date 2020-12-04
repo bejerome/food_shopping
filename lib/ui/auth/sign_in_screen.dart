@@ -58,19 +58,13 @@ class _SignInScreenState extends State<SignInScreen> {
         body: Stack(
           children: <Widget>[
             // Add a SizedBox to contain our video.
-            Center(
-              child: Container(
-                color: Colors.transparent,
-                width: MediaQuery.of(context).size.width.toDouble(),
-                height: MediaQuery.of(context).size.height.toDouble(),
-                child: Image.asset(
-                  'assets/images/camping.png',
-                ),
-              ),
-            ),
+
             SizedBox.expand(
                 child: FittedBox(
-              child: SizedBox(),
+              child: SizedBox(
+                  child: Image.asset(
+                'assets/images/food_background.jpg',
+              )),
               // If your background video doesn't look right, try changing the BoxFit property.
               // BoxFit.fill created the look I was going for.
               fit: BoxFit.cover,

@@ -76,7 +76,7 @@ class TabText {
   );
 
   static const tabText5 = const Text(
-    "Chips",
+    "Bakery",
     style: TextStyle(
       fontFamily: Fonts.primaryFont,
       fontWeight: FontWeight.bold,

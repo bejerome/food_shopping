@@ -66,7 +66,7 @@ class ShoppingFormState extends State<ShoppingForm> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.lightGreen,
+      color: Colors.green,
       child: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -77,28 +77,30 @@ class ShoppingFormState extends State<ShoppingForm> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: ListTile(
-                    title: SimpleAutoCompleteTextField(
-                      minLength: 3,
-                      suggestionsAmount: 10,
-                      key: _autoCompleteFormKey,
-                      decoration: new InputDecoration(
-                        labelText: "Add Item",
-                        labelStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                        ),
+                  child: SimpleAutoCompleteTextField(
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0),
+                    minLength: 3,
+                    suggestionsAmount: 10,
+                    key: _autoCompleteFormKey,
+                    decoration: new InputDecoration(
+                      labelText: "Add Item",
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
                       ),
-                      controller: itemNameController,
-                      suggestions: suggestions,
-                      textChanged: (text) => currentText = text,
-                      clearOnSubmit: false,
-                      textSubmitted: (text) => setState(() {
-                        if (text != "") {
-                          added.add(text);
-                        }
-                      }),
                     ),
+                    controller: itemNameController,
+                    suggestions: suggestions,
+                    textChanged: (text) => currentText = text,
+                    clearOnSubmit: false,
+                    textSubmitted: (text) => setState(() {
+                      if (text != "") {
+                        added.add(text);
+                      }
+                    }),
                   ),
                 ),
                 Container(
@@ -211,7 +213,7 @@ List<String> suggestions = [
   "fig",
   "goji berry",
   "gooseberry",
-  "grape",
+  "grapes",
   "grapefruit",
   "guava",
   "honeydew",

@@ -18,30 +18,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Center(
-            child: Text(
-          AppLocalizations.of(context).translate("splashTitle"),
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).textTheme.bodyText1.color,
-          ),
-        )),
-        SizedBox(
-          width: 50,
-          height: 50,
+      body: SizedBox.expand(
+        child: FittedBox(
+          child: SizedBox(
+              child: Image.asset(
+            'assets/images/food_background.jpg',
+          )),
+          // If your background video doesn't look right, try changing the BoxFit property.
+          // BoxFit.fill created the look I was going for.
+          fit: BoxFit.cover,
         ),
-        Container(
-          height: 175,
-          child: Image(image: AssetImage('assets/images/camping.png')),
-        ),
-      ],
-    )));
+      ),
+    );
   }
 
   startTimer() {

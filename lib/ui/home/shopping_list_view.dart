@@ -19,7 +19,7 @@ class FruitAppCartView extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-          FittedBox(child: cartItems),
+          Container(child: cartItems),
           SizedBox(
             height: 20.0,
           ),
