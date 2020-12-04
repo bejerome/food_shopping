@@ -1,4 +1,5 @@
-import 'dart:ffi';
+import 'dart:core';
+import 'dart:io' as io;
 
 import 'package:adv_fab/adv_fab.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
@@ -76,6 +77,7 @@ class ShoppingFormState extends State<ShoppingForm> {
                   padding: const EdgeInsets.only(left: 40, right: 40),
                   child: ListTile(
                     title: SimpleAutoCompleteTextField(
+                      suggestionsAmount: 10,
                       key: _autoCompleteFormKey,
                       decoration: new InputDecoration(
                         labelText: "Add Item",
@@ -486,10 +488,10 @@ List<String> suggestions = [
   "Jimbu",
   "Kinh gioi",
   "Lavender",
-  "Lemon balm",
-  "Lemon grass",
-  "Lemon myrtle",
-  "Lemon verbena",
+  "Lemonbalm",
+  "Lemongrass",
+  "Lemonmyrtle",
+  "Lemonverbena",
   "Limnophila aromatica",
   "Lovage",
   "Marjoram",

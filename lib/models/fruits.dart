@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/utils/utils.dart';
 
 class Fruit {
   String name,

@@ -1,6 +1,9 @@
 import 'package:camping_fanatics/models/fruits.dart';
 import 'package:camping_fanatics/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'dart:io' as io;
+
+import 'package:flutter/services.dart';
 
 class ItemCard extends StatefulWidget {
   final Fruit shoppingItem;
@@ -10,6 +13,15 @@ class ItemCard extends StatefulWidget {
 }
 
 class _ItemCardState extends State<ItemCard> {
+  Future<Widget> getDevIcon(String path) async {
+    try {
+      await rootBundle.load(path);
+      return Image.asset(path);
+    } catch (_) {
+      return SizedBox.shrink();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
