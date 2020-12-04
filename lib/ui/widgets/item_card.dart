@@ -32,11 +32,11 @@ class _ItemCardState extends State<ItemCard> {
         right: 15.0,
       ),
       child: Material(
-        elevation: 54.0,
-        shadowColor: Colors.transparent,
+        elevation: 20.0,
+        shadowColor: Colors.grey,
         borderRadius: BorderRadius.circular(5.0),
         child: Container(
-          height: 120.0,
+          height: 90.0,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
@@ -84,7 +84,7 @@ class _ItemCardState extends State<ItemCard> {
                           Text(
                             widget.shoppingItem.quantity,
                             style: TextStyle(
-                              fontFamily: Fonts.primaryFont,
+                              fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0,
                               color: Colors.grey,
@@ -93,6 +93,7 @@ class _ItemCardState extends State<ItemCard> {
                           Text(
                             widget.shoppingItem.amount,
                             style: TextStyle(
+                              fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
                               color: Colors.orange,
                               fontSize: 20.0,

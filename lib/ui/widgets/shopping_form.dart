@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'dart:io' as io;
+import 'dart:ui';
 
 import 'package:adv_fab/adv_fab.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
@@ -64,19 +65,21 @@ class ShoppingFormState extends State<ShoppingForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Material(
+      color: Colors.lightGreen,
       child: Form(
         key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 2),
+            padding: const EdgeInsets.only(top: 5.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   child: ListTile(
                     title: SimpleAutoCompleteTextField(
+                      minLength: 3,
                       suggestionsAmount: 10,
                       key: _autoCompleteFormKey,
                       decoration: new InputDecoration(
@@ -96,101 +99,73 @@ class ShoppingFormState extends State<ShoppingForm> {
                         }
                       }),
                     ),
-                    // title: TextFormField(
-                    //   autofocus: true,
-                    //   controller: itemNameController,
-                    //   textAlign: TextAlign.center,
-                    //   style: TextStyle(
-                    //       color: Colors.black,
-                    //       fontSize: 20.0,
-                    //       fontWeight: FontWeight.bold),
-                    //   decoration: InputDecoration(
-                    //     floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    //     filled: true,
-                    //     fillColor: Colors.white70,
-                    //     labelText: "Add Item",
-                    //     labelStyle: TextStyle(
-                    //       color: Colors.black,
-                    //       fontSize: 15,
-                    //     ),
-                    //   ),
-                    // ),
                   ),
                 ),
-                ListTile(
-                  title: Container(
-                    child: ChipsChoice<int>.single(
-                      choiceActiveStyle: C2ChoiceStyle(
-                        elevation: 20,
-                        pressElevation: 1,
-                        borderColor: Colors.transparent,
-                        color: Colors.green,
-                        labelStyle: TextStyle(
-                            color: Colors.green, fontWeight: FontWeight.bold),
-                      ),
-                      choiceStyle: C2ChoiceStyle(
-                        elevation: 5,
-                        color: Colors.orange,
-                        borderColor: Colors.transparent,
-                        labelStyle: TextStyle(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
-                      ),
-                      value: tag,
-                      onChanged: (val) => {
-                        valueStored = storeValue(val),
-                        setState(() => tag = val),
-                      },
-                      choiceItems: C2Choice.listFrom<int, String>(
-                        source: options,
-                        value: (i, v) => i,
-                        label: (i, v) => v,
-                      ),
+                Container(
+                  child: ChipsChoice<int>.single(
+                    direction: Axis.horizontal,
+                    choiceActiveStyle: C2ChoiceStyle(
+                      elevation: 20,
+                      pressElevation: 1,
+                      borderColor: Colors.transparent,
+                      color: Colors.green,
+                      labelStyle: TextStyle(
+                          color: Colors.green, fontWeight: FontWeight.bold),
+                    ),
+                    choiceStyle: C2ChoiceStyle(
+                      elevation: 5,
+                      color: Colors.orange,
+                      borderColor: Colors.transparent,
+                      labelStyle: TextStyle(
+                          color: Colors.orange, fontWeight: FontWeight.bold),
+                    ),
+                    value: tag,
+                    onChanged: (val) => {
+                      valueStored = storeValue(val),
+                      setState(() => tag = val),
+                    },
+                    choiceItems: C2Choice.listFrom<int, String>(
+                      source: options,
+                      value: (i, v) => i,
+                      label: (i, v) => v,
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40),
-                  child: ListTile(
-                    title: TextFormField(
-                      controller: itemQuantityController,
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold),
-                      decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        filled: true,
-                        fillColor: Colors.white70,
-                        labelText: valueStored,
-                        labelStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                        ),
+                  child: TextFormField(
+                    controller: itemQuantityController,
+                    keyboardType: TextInputType.number,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.auto,
+                      labelText: valueStored,
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    child: FloatingActionButton(
-                      isExtended: true,
-                      elevation: 15,
-                      child: Icon(
-                        Icons.add,
-                        size: 40,
-                      ),
-                      onPressed: () {
-                        print("Item: ${itemNameController.text} ");
-                        print("$valueStored: ${itemQuantityController.text} ");
-                        widget.formController.collapseFAB();
-                        updateItemList();
-                      },
+                  padding: const EdgeInsets.all(8.0),
+                  child: FloatingActionButton(
+                    isExtended: true,
+                    elevation: 15,
+                    child: Icon(
+                      Icons.add,
+                      size: 40,
                     ),
+                    onPressed: () {
+                      print("Item: ${itemNameController.text} ");
+                      print("$valueStored: ${itemQuantityController.text} ");
+                      widget.formController.collapseFAB();
+                      updateItemList();
+                    },
                   ),
                 ),
               ],

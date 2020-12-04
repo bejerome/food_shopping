@@ -67,8 +67,9 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
                             title,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontFamily: 'Montesserat',
                               fontSize: 25,
-                              // color: Colors.black54,
+                              color: Colors.green,
                             ),
                           ),
                         ),
