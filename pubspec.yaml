@@ -41,6 +41,8 @@ dependencies:
   adv_fab: ^1.0.5
   autocomplete_textfield: ^1.7.3
   chips_choice: ^2.0.1
+  flutter_typeahead: ^1.9.1
+  trie: ^1.0.2
   # carousel_slider: ^2.2.1
   
 

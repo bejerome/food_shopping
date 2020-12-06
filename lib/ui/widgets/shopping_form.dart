@@ -10,6 +10,8 @@ import 'package:camping_fanatics/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:chips_choice/chips_choice.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:trie/trie.dart';
 
 class ShoppingForm extends StatefulWidget {
   final AdvFabController formController;
@@ -31,6 +33,11 @@ class ShoppingFormState extends State<ShoppingForm> {
   TextEditingController itemQuantityController = TextEditingController();
   String valueStored = "qty";
   String amountLabel = "qty";
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   String storeValue(index) {
     switch (index) {
@@ -63,6 +70,11 @@ class ShoppingFormState extends State<ShoppingForm> {
     );
   }
 
+  List<String> getSuggestions(value) {
+    Trie trie = new Trie.list(suggestionsList);
+    return trie.getAllWordsWithPrefix(value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -75,33 +87,31 @@ class ShoppingFormState extends State<ShoppingForm> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: SimpleAutoCompleteTextField(
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30.0),
-                    minLength: 3,
-                    suggestionsAmount: 10,
-                    key: _autoCompleteFormKey,
-                    decoration: new InputDecoration(
-                      labelText: "Add Item",
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                TypeAheadField(
+                  textFieldConfiguration: TextFieldConfiguration(
+                      autofocus: true,
+                      controller: itemNameController,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                      decoration:
+                          InputDecoration(border: OutlineInputBorder())),
+                  suggestionsCallback: (pattern) async {
+                    return getSuggestions(pattern);
+                  },
+                  itemBuilder: (context, suggestion) {
+                    return ListTile(
+                      leading: Icon(Icons.shopping_cart),
+                      title: Text(
+                        suggestion,
+                        style: TextStyle(color: Colors.black),
                       ),
-                    ),
-                    controller: itemNameController,
-                    suggestions: suggestions,
-                    textChanged: (text) => currentText = text,
-                    clearOnSubmit: false,
-                    textSubmitted: (text) => setState(() {
-                      if (text != "") {
-                        added.add(text);
-                      }
-                    }),
-                  ),
+                    );
+                  },
+                  onSuggestionSelected: (suggestion) {
+                    itemNameController.text = suggestion;
+                  },
                 ),
                 Container(
                   child: ChipsChoice<int>.single(
@@ -179,12 +189,14 @@ class ShoppingFormState extends State<ShoppingForm> {
   }
 }
 
-List<String> suggestions = [
+List<String> suggestionsList = [
   "apple",
   "apricot",
   "avocado",
   "banana",
-  "bell pepper",
+  "bell pepper red",
+  "bell pepper green",
+  "bell pepper yellow",
   "bilberry",
   "blackberry",
   "blackcurrant",
