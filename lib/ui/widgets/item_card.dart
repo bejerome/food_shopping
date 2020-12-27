@@ -30,8 +30,9 @@ class _ItemCardState extends State<ItemCard> {
         right: 15.0,
       ),
       child: Material(
-        elevation: 20.0,
-        shadowColor: Colors.grey,
+        color: Colors.transparent,
+        // elevation: 20.0,
+        // shadowColor: Colors.grey,
         borderRadius: BorderRadius.circular(5.0),
         child: Container(
           height: 90.0,

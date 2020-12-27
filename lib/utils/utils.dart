@@ -17,7 +17,7 @@ class ImageAssetPath {
 }
 
 class Fonts {
-  static const primaryFont = "Quicksand";
+  static const primaryFont = "Monteserat";
 }
 
 class Texts {
