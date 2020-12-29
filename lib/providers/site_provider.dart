@@ -31,20 +31,39 @@ class SiteProvider extends ChangeNotifier {
     // notifyListeners();
   }
 
-  Widget createShoppingItems() {
+  Widget createShoppingItems({String cat = ""}) {
     List<Widget> result = [];
+    switch (cat) {
+      case "Dairy":
+        result = createAllShoppingItems();
+        break;
+      case "fruits":
+        result = createVegetableItems();
+        break;
+      default:
+        createAllShoppingItems();
+    }
     for (var i = 0; i < this.fruits.length; i++) {
       result.add(ItemCard(shoppingItem: this.fruits[i]));
     }
     return Column(children: result);
   }
 
-  Widget createVegetableItems(_name) {
+  List<Widget> createAllShoppingItems() {
     List<Widget> result = [];
-    var items = fruits.where((element) => element.type == _name);
-    for (var i = 0; i < items.length; i++) {
+    for (var i = 0; i < this.fruits.length; i++) {
       result.add(ItemCard(shoppingItem: this.fruits[i]));
     }
-    return Column(children: result);
+    return result;
+  }
+
+  List<Widget> createVegetableItems() {
+    List<Widget> result = [];
+    var items =
+        fruits.where((element) => element.type == "fruit_vegetables").toList();
+    for (var i = 0; i < items.length; i++) {
+      result.add(ItemCard(shoppingItem: items[i]));
+    }
+    return result;
   }
 }

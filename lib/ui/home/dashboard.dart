@@ -1,4 +1,5 @@
 import 'package:camping_fanatics/models/user_model.dart';
+import 'package:camping_fanatics/providers/site_provider.dart';
 import 'package:camping_fanatics/services/firestore_database.dart';
 import 'package:camping_fanatics/ui/home/shopping_list_view.dart';
 import 'package:camping_fanatics/ui/widgets/custom_top_bar.dart';
@@ -168,7 +169,7 @@ class _DashboardState extends State<Dashboard>
                                   onTitleTapped: null,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(16.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: TabBar(
                                     controller: tabController,
                                     indicatorColor: Colors.lightGreen,
@@ -178,10 +179,22 @@ class _DashboardState extends State<Dashboard>
                                     isScrollable: true,
                                     tabs: <Widget>[
                                       Tab(
-                                        child: TabText.tabText1,
+                                        child: GestureDetector(
+                                            onTap: () {},
+                                            child: TabText.tabText1),
                                       ),
                                       Tab(
-                                        child: TabText.tabText2,
+                                        child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                Provider.of<SiteProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .createShoppingItems(
+                                                        cat: "fruits");
+                                              });
+                                            },
+                                            child: TabText.tabText2),
                                       ),
                                       Tab(
                                         child: TabText.tabText3,

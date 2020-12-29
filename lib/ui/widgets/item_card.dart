@@ -1,3 +1,5 @@
+import 'dart:io' as io;
+
 import 'package:camping_fanatics/models/fruits.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +13,23 @@ class ItemCard extends StatefulWidget {
 }
 
 class _ItemCardState extends State<ItemCard> {
-  Future<Widget> getDevIcon(String path) async {
+  Future<Image> getDevIcon(String path) async {
+    return rootBundle.load(path).then((value) {
+      return Image.memory(value.buffer.asUint8List());
+    }).catchError((_) {
+      return Image.asset(
+        "assets/images/avatar.png",
+        height: 250.0,
+      );
+    });
+  }
+
+  Future<String> getImage(String path) async {
     try {
-      await rootBundle.load(path);
-      return Image.asset(path);
+      await rootBundle.loadString(path);
+      return widget.shoppingItem.image;
     } catch (_) {
-      return SizedBox.shrink();
+      return 'assets/images/avatar.png';
     }
   }
 
@@ -44,10 +57,17 @@ class _ItemCardState extends State<ItemCard> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Image.asset(
-                  widget.shoppingItem.image,
-                  fit: BoxFit.cover,
-                  height: 80.0,
+                child: FutureBuilder(
+                  future: getDevIcon(widget.shoppingItem.image),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<Image> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done)
+                      return snapshot.data;
+                    else
+                      return Image.asset(
+                        'assets/images/avatar.png',
+                      );
+                  },
                 ),
               ),
               Flexible(
