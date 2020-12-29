@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/app_localizations.dart';
-import 'package:camping_fanatics/routes.dart';
+import 'package:shopping_list/app_localizations.dart';
+import 'package:shopping_list/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

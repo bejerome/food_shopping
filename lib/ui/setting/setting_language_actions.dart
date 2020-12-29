@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/app_localizations.dart';
-import 'package:camping_fanatics/providers/language_provider.dart';
+import 'package:shopping_list/app_localizations.dart';
+import 'package:shopping_list/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 
 enum LanguagesActions { english, chinese }

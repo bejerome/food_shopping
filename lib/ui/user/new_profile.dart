@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/services/firestore_database.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/services/firestore_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

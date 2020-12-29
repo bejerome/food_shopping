@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/services/firestore_storage.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/services/firestore_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
-import 'package:camping_fanatics/services/firestore_path.dart';
-import 'package:camping_fanatics/services/firestore_service.dart';
+import 'package:shopping_list/services/firestore_path.dart';
+import 'package:shopping_list/services/firestore_service.dart';
 
 String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
 

@@ -1,4 +1,4 @@
-import 'package:camping_fanatics/providers/site_provider.dart';
+import 'package:shopping_list/providers/site_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/constants/app_font_family.dart';
+import 'package:shopping_list/constants/app_font_family.dart';
 
 class AppThemes {
   AppThemes._();

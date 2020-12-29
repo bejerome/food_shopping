@@ -1,10 +1,10 @@
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/providers/site_provider.dart';
-import 'package:camping_fanatics/services/firestore_database.dart';
-import 'package:camping_fanatics/ui/home/shopping_list_view.dart';
-import 'package:camping_fanatics/ui/widgets/custom_top_bar.dart';
-import 'package:camping_fanatics/ui/widgets/shopping_form.dart';
-import 'package:camping_fanatics/utils/utils.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/providers/site_provider.dart';
+import 'package:shopping_list/services/firestore_database.dart';
+import 'package:shopping_list/ui/home/shopping_list_view.dart';
+import 'package:shopping_list/ui/widgets/custom_top_bar.dart';
+import 'package:shopping_list/ui/widgets/shopping_form.dart';
+import 'package:shopping_list/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';

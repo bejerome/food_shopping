@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/providers/theme_provider.dart';
-import 'package:camping_fanatics/ui/setting/setting_language_actions.dart';
+import 'package:shopping_list/providers/theme_provider.dart';
+import 'package:shopping_list/ui/setting/setting_language_actions.dart';
 import 'package:provider/provider.dart';
 
 class SettingScreen extends StatelessWidget {

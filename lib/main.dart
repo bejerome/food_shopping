@@ -1,12 +1,12 @@
-import 'package:camping_fanatics/providers/site_provider.dart';
+import 'package:shopping_list/providers/site_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:camping_fanatics/flavor.dart';
-import 'package:camping_fanatics/my_app.dart';
-import 'package:camping_fanatics/providers/auth_provider.dart';
-import 'package:camping_fanatics/providers/language_provider.dart';
-import 'package:camping_fanatics/providers/theme_provider.dart';
-import 'package:camping_fanatics/services/firestore_database.dart';
+import 'package:shopping_list/flavor.dart';
+import 'package:shopping_list/my_app.dart';
+import 'package:shopping_list/providers/auth_provider.dart';
+import 'package:shopping_list/providers/language_provider.dart';
+import 'package:shopping_list/providers/theme_provider.dart';
+import 'package:shopping_list/services/firestore_database.dart';
 import 'package:provider/provider.dart';
 
 void main() {

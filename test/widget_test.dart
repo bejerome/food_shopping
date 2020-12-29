@@ -7,9 +7,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:camping_fanatics/my_app.dart';
+import 'package:shopping_list/my_app.dart';
 
-// import 'package:camping_fanatics/main.dart';
+// import 'package:shopping_list/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

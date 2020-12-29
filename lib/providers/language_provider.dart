@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/caches/sharedpref/shared_preference_helper.dart';
+import 'package:shopping_list/caches/sharedpref/shared_preference_helper.dart';
 
 class LanguageProvider extends ChangeNotifier {
   // shared pref object

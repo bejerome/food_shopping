@@ -3,9 +3,9 @@ import 'dart:ui';
 
 import 'package:adv_fab/adv_fab.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
-import 'package:camping_fanatics/models/fruits.dart';
-import 'package:camping_fanatics/providers/site_provider.dart';
-import 'package:camping_fanatics/utils/items.dart';
+import 'package:shopping_list/models/fruits.dart';
+import 'package:shopping_list/providers/site_provider.dart';
+import 'package:shopping_list/utils/items.dart';
 import 'package:flutter/material.dart';
 import 'package:chips_choice/chips_choice.dart';
 import 'package:provider/provider.dart';

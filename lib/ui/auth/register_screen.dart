@@ -1,10 +1,10 @@
-import 'package:camping_fanatics/services/firestore_path.dart';
-import 'package:camping_fanatics/services/firestore_service.dart';
+import 'package:shopping_list/services/firestore_path.dart';
+import 'package:shopping_list/services/firestore_service.dart';
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/app_localizations.dart';
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/providers/auth_provider.dart';
-import 'package:camping_fanatics/routes.dart';
+import 'package:shopping_list/app_localizations.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/providers/auth_provider.dart';
+import 'package:shopping_list/routes.dart';
 import 'package:provider/provider.dart';
 
 UserModel userModel;

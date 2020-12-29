@@ -1,12 +1,12 @@
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/services/firestore_database.dart';
-import 'package:camping_fanatics/ui/home/dashboard.dart';
-import 'package:camping_fanatics/ui/setting/setting_screen.dart';
-import 'package:camping_fanatics/ui/widgets/menu_text.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/services/firestore_database.dart';
+import 'package:shopping_list/ui/home/dashboard.dart';
+import 'package:shopping_list/ui/setting/setting_screen.dart';
+import 'package:shopping_list/ui/widgets/menu_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:camping_fanatics/ui/widgets/top_container.dart';
+import 'package:shopping_list/ui/widgets/top_container.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key key}) : super(key: key);

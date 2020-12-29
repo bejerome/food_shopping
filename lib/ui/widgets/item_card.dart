@@ -1,6 +1,6 @@
 import 'dart:io' as io;
 
-import 'package:camping_fanatics/models/fruits.dart';
+import 'package:shopping_list/models/fruits.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';

@@ -1,4 +1,4 @@
-import 'package:camping_fanatics/routes.dart';
+import 'package:shopping_list/routes.dart';
 import 'package:flutter/material.dart';
 
 class MenuText extends StatelessWidget {

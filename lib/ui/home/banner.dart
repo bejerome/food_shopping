@@ -1,5 +1,5 @@
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/ui/widgets/top_container.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/ui/widgets/top_container.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 

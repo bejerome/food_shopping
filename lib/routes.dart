@@ -1,11 +1,11 @@
-import 'package:camping_fanatics/ui/home/calendar_popup_view.dart';
+import 'package:shopping_list/ui/home/calendar_popup_view.dart';
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/ui/auth/register_screen.dart';
-import 'package:camping_fanatics/ui/auth/sign_in_screen.dart';
-import 'package:camping_fanatics/ui/setting/setting_screen.dart';
-import 'package:camping_fanatics/ui/splash/splash_screen.dart';
-import 'package:camping_fanatics/ui/home/main_screen.dart';
-import 'package:camping_fanatics/ui/user/edit_user_profile.dart';
+import 'package:shopping_list/ui/auth/register_screen.dart';
+import 'package:shopping_list/ui/auth/sign_in_screen.dart';
+import 'package:shopping_list/ui/setting/setting_screen.dart';
+import 'package:shopping_list/ui/splash/splash_screen.dart';
+import 'package:shopping_list/ui/home/main_screen.dart';
+import 'package:shopping_list/ui/user/edit_user_profile.dart';
 
 class Routes {
   Routes._(); //this is to prevent anyone from instantiate this object

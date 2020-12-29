@@ -1,7 +1,7 @@
-import 'package:camping_fanatics/models/fruits.dart';
-import 'package:camping_fanatics/models/user_model.dart';
-import 'package:camping_fanatics/ui/widgets/item_card.dart';
-import 'package:camping_fanatics/utils/utils.dart';
+import 'package:shopping_list/models/fruits.dart';
+import 'package:shopping_list/models/user_model.dart';
+import 'package:shopping_list/ui/widgets/item_card.dart';
+import 'package:shopping_list/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class SiteProvider extends ChangeNotifier {

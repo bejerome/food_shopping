@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/ui/splash/splash_screen.dart';
+import 'package:shopping_list/ui/splash/splash_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

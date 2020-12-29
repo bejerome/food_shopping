@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:camping_fanatics/app_localizations.dart';
-import 'package:camping_fanatics/flavor.dart';
-import 'package:camping_fanatics/providers/auth_provider.dart';
-import 'package:camping_fanatics/routes.dart';
+import 'package:shopping_list/app_localizations.dart';
+import 'package:shopping_list/flavor.dart';
+import 'package:shopping_list/providers/auth_provider.dart';
+import 'package:shopping_list/routes.dart';
 import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {
