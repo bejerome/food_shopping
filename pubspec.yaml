@@ -43,6 +43,7 @@ dependencies:
   chips_choice: ^2.0.1
   flutter_typeahead: ^1.9.1
   trie: ^1.0.2
+  google_fonts: ^1.1.1
   # carousel_slider: ^2.2.1
   
 
@@ -101,6 +102,11 @@ flutter:
         - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
         - asset: assets/fonts/Montserrat/Montserrat-BlackItalic.ttf
           style: italic
+    - family: Sacramento-Regular
+      fonts:
+        - asset: assets/fonts/Sacramento-Regular.ttf
+          
+          
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

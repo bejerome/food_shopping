@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -63,21 +64,19 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
                         alignment: Alignment.centerLeft,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 30),
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montesserat',
-                              fontSize: 25,
-                              color: Colors.green,
-                            ),
-                          ),
+                          child: Text(title,
+                              style: GoogleFonts.sacramento(
+                                  textStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 33.0,
+                                color: Colors.green,
+                              ))),
                         ),
                       ),
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],

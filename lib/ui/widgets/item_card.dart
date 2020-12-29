@@ -4,6 +4,7 @@ import 'package:camping_fanatics/models/fruits.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ItemCard extends StatefulWidget {
   final Fruit shoppingItem;
@@ -15,22 +16,19 @@ class ItemCard extends StatefulWidget {
 class _ItemCardState extends State<ItemCard> {
   Future<Image> getDevIcon(String path) async {
     return rootBundle.load(path).then((value) {
-      return Image.memory(value.buffer.asUint8List());
+      return Image.memory(
+        value.buffer.asUint8List(),
+        height: 250.0,
+        width: 80.0,
+        fit: BoxFit.contain,
+      );
     }).catchError((_) {
       return Image.asset(
-        "assets/images/avatar.png",
+        "assets/images/default_image.png",
         height: 250.0,
+        width: 80.0,
       );
     });
-  }
-
-  Future<String> getImage(String path) async {
-    try {
-      await rootBundle.loadString(path);
-      return widget.shoppingItem.image;
-    } catch (_) {
-      return 'assets/images/avatar.png';
-    }
   }
 
   @override
@@ -54,6 +52,7 @@ class _ItemCardState extends State<ItemCard> {
             borderRadius: BorderRadius.circular(5.0),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -65,7 +64,10 @@ class _ItemCardState extends State<ItemCard> {
                       return snapshot.data;
                     else
                       return Image.asset(
-                        'assets/images/avatar.png',
+                        "assets/images/default_image.png",
+                        fit: BoxFit.contain,
+                        height: 250.0,
+                        width: 25.0,
                       );
                   },
                 ),
@@ -90,34 +92,35 @@ class _ItemCardState extends State<ItemCard> {
                           ),
                           Text(
                             widget.shoppingItem.name,
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
+                            style: GoogleFonts.sacramento(
+                                textStyle: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18.0,
-                              color: Colors.black,
-                            ),
+                              fontSize: 40.0,
+                              color: Colors.black54,
+                            )),
                           ),
                           SizedBox(
                             height: 10.0,
                           ),
                           Text(
                             widget.shoppingItem.quantity,
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
+                            style: GoogleFonts.sacramento(
+                                textStyle: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18.0,
-                              color: Colors.grey,
-                            ),
+                              fontSize: 30.0,
+                              color: Colors.black54,
+                            )),
                           ),
-                          Text(
-                            widget.shoppingItem.amount,
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                              color: Colors.orange,
-                              fontSize: 20.0,
-                            ),
+                          SizedBox(
+                            height: 10.0,
                           ),
+                          Text(widget.shoppingItem.amount,
+                              style: GoogleFonts.sacramento(
+                                  textStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0,
+                                color: Colors.orange,
+                              ))),
                           SizedBox(
                             width: 16.0,
                           ),
